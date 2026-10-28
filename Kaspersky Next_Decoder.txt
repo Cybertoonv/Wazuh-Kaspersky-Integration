@@ -1,0 +1,53 @@
+<!-- Kaspersky Next / KSC syslog (RFC 5424, Final Decoder)-->
+
+<!-- Parent -->
+<decoder name="kaspersky-ksc">
+  <prematch type="pcre2">\[event@\d+ </prematch>
+</decoder>wwwwwwfv
+
+<!-- Children -->
+<!-- Component that raised the event (malware and protection events) -->
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">\btdn="([^"]*)"</regex>
+  <order>component</order>
+</decoder>
+
+<!-- Event description, e.g. "Device status is Critical." -->
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">\betdn="([^"]*)"</regex>
+  <order>message</order>
+</decoder>
+
+<!-- Which device a status event is about -->
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">Status of device '([^']*)'</regex>
+  <order>device</order>
+</decoder>
+
+<!-- Details in the message text of endpoint events -->
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">User:\s*(.*?)(?:\\r\\n|$)</regex>
+  <order>user</order>
+</decoder>
+
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">Application path:\s*(.*?)(?:\\r\\n|$)</regex>
+  <order>path</order>
+</decoder>
+
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">Name:\s*(.*?)(?:\\r\\n|$)</regex>
+  <order>process_name</order>
+</decoder>
+
+<decoder name="kaspersky">
+  <parent>kaspersky-ksc</parent>
+  <regex type="pcre2">Error:\s*(.*?)(?:\\r\\n|$)</regex>
+  <order>error</order>
+</decoder>

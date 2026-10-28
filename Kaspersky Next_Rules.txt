@@ -1,0 +1,155 @@
+<!--Final Rules set -->
+<group name="kaspersky,ksc,">
+
+  <rule id="120101" level="12">
+    <decoded_as>kaspersky-ksc</decoded_as>
+    <description>Kaspersky: $(message)</description>
+  </rule>
+
+  <rule id="480018" level="13">
+    <if_sid>120101</if_sid>
+    <field name="message">Malicious object detected</field>
+    <description>Kaspersky: malicious object detected by $(component) - $(process_name)</description>
+  </rule>
+
+  <rule id="480019" level="0">
+    <if_sid>120101</if_sid>
+    <match>KLAUD_EV_SERVERCONNECT</match>
+    <regex>ServiceUser_|OpenApi-</regex>
+    <description>Kaspersky: service account connection (ignored)</description>
+  </rule>
+
+  <rule id="480020" level="3">
+    <if_sid>120101</if_sid>
+    <match>KLAUD_EV_SERVERCONNECT</match>
+    <description>Kaspersky: connection to the Administration Server</description>
+  </rule>
+
+  <rule id="480021" level="10">
+    <if_sid>120101</if_sid>
+    <match>KLSRV_HOST_STATUS_</match>
+    <regex>Active threats are detected</regex>
+    <description>Kaspersky: active threats detected on $(device)</description>
+  </rule>
+
+  <rule id="480022" level="7">
+    <if_sid>120101</if_sid>
+    <match>KLSRV_HOST_STATUS_CRITICAL</match>
+    <description>Kaspersky: $(message) - $(device)</description>
+  </rule>
+
+  <rule id="480023" level="5">
+    <if_sid>120101</if_sid>
+    <match>KLSRV_HOST_STATUS_WARNING</match>
+    <description>Kaspersky: $(message) - $(device)</description>
+  </rule>
+
+  <rule id="480024" level="4">
+    <if_sid>120101</if_sid>
+    <match>KLSRV_EVENT_HOSTS_NOT_VISIBLE</match>
+    <description>Kaspersky: managed device not visible for several days</description>
+  </rule>
+
+  <rule id="480001" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">^Protection</field>
+    <description>Kaspersky: Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480002" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Install updates</field>
+    <description>Kaspersky: Install updates event - $(message)</description>
+  </rule>
+
+  <rule id="480003" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Update</field>
+    <description>Kaspersky: Update event - $(message)</description>
+  </rule>
+
+  <rule id="480004" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Network Threat Protection</field>
+    <description>Kaspersky: Network Threat Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480005" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Mail Threat Protection</field>
+    <description>Kaspersky: Mail Threat Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480006" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Web Threat Protection</field>
+    <description>Kaspersky: Web Threat Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480007" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Host Intrusion Prevention</field>
+    <description>Kaspersky: Host Intrusion Prevention event - $(message)</description>
+  </rule>
+
+  <rule id="480008" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Exploit Prevention</field>
+    <description>Kaspersky: Exploit Prevention event - $(message)</description>
+  </rule>
+
+  <rule id="480009" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Device Control</field>
+    <description>Kaspersky: Device Control event - $(message)</description>
+  </rule>
+
+  <rule id="480010" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Malware Scan</field>
+    <description>Kaspersky: Malware Scan event - $(message)</description>
+  </rule>
+
+  <rule id="480011" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Adaptive Anomaly Control</field>
+    <description>Kaspersky: Adaptive Anomaly Control event - $(message)</description>
+  </rule>
+
+  <rule id="480012" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">File Threat Protection</field>
+    <description>Kaspersky: File Threat Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480013" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Firewall</field>
+    <description>Kaspersky: Firewall event - $(message)</description>
+  </rule>
+
+  <rule id="480014" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Behavior Detection</field>
+    <description>Kaspersky: Behavior Detection event - $(message)</description>
+  </rule>
+
+  <rule id="480015" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">AMSI Protection</field>
+    <description>Kaspersky: AMSI Protection event - $(message)</description>
+  </rule>
+
+  <rule id="480016" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Application Control</field>
+    <description>Kaspersky: Application Control event - $(message)</description>
+  </rule>
+
+  <rule id="480017" level="10">
+    <if_sid>120101</if_sid>
+    <field name="component">Web Control</field>
+    <description>Kaspersky: Web Control event - $(message)</description>
+  </rule>
+
+</group>
