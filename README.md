@@ -294,7 +294,7 @@ Wazuh has no built-in Kaspersky decoder, so logs may arrive in `archives.log` wi
 1 <timestamp> <host> <app> - <EVENT_TYPE> [event@<id> ... et="..." etdn="..." hdn="..." hip="..." gn="..." kscfqdn="..."] <readable message>
 ```
 
-You can find the decoder and rules in the GitHub repository: https://github.com/Cybertoonv/Kaspersky_Integration
+You can find the decoder and rules within the repository
 
 Copy them into these files:
 
