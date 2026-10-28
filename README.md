@@ -227,13 +227,13 @@ Menu names differ between versions, so find the matching ones in your console. T
 1. Open Kaspersky Next and click the *Go to workspace* button.
 2. In the left menu, open **Administration Server**.
 
-   ![Kaspersky Next left menu with Administration Server highlighted](images/01-administration-server-menu.png)
+   ![Kaspersky Next left menu with Administration Server highlighted](img/01-administration-server-menu.png)
 
 3. Open the **Administration Server** properties and wait for the **General** tab to load.
     - If it doesn't load, press `Ctrl+Shift+R` to reload, or move to **Event configuration** and back to **General**. This should work.
 4. In the list on the left, open **Export to SIEM**, then click **Settings**.
 
-   ![Export to SIEM page before it is configured](images/02-export-to-siem-settings.png)
+   ![Export to SIEM page before it is configured](img/02-export-to-siem-settings.png)
 
    This is what the page looks like before you configure it: the address shows `:0` and **Automatically export events to SIEM system database** is **Disabled**. You'll switch that on in Part 8.
 
@@ -251,7 +251,7 @@ To get the certificate file off the server, run `cat /etc/stunnel/certs/siem.exa
 
 Then click **Check connection**. If it shows **Failure**, check that stunnel is running, that the certificate name matches the server name, and that port 6514 is reachable (Parts 4 to 6).
 
-![Connection to SIEM system showing Failure](images/04-connection-check-failure.png)
+![Connection to SIEM system showing Failure](img/04-connection-check-failure.png)
 
 ---
 
@@ -280,7 +280,7 @@ Stop with `Ctrl+C`. If Kaspersky connects but you see TLS or certificate errors,
 - Click **Mark for export to SIEM system by using Syslog**, then hit **Save**
 - Turn on **Automatically export events to SIEM system database**. Don't forget to turn it on.
 
-![Event configuration tab with event types marked for Syslog](images/03-event-configuration.png)
+![Event configuration tab with event types marked for Syslog](img/03-event-configuration.png)
 
 The **Syslog** column shows a tick for every event type that is marked for export.
 
